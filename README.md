@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Reverse Life Technical Task
 
-## Getting Started
+## 1. Install Necessary Dependencies
 
-First, run the development server:
+To make API requests from your Next.js app, you will need some dependencies.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+The example below uses axios, but you're free to choose any other library you're comfortable with for API requests.:
+
+```
+npm install axios
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 2. Authenticate with GitHub CLI and retrieve your Shopify API keys by running the following commands.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The output should be saved into a .env.development.local file with the necessary variables like SHOPIFY_API_KEY, SHOPIFY_API_PASSWORD, and SHOPIFY_STORE_DOMAIN
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+npm i -g gh
+gh auth login
+touch .env.development.local
+gh variable list > .env.development.local
+```
 
-## Learn More
+If you have any questions or issues retrieveing these credentials, reach out to claire@genius.co.uk
 
-To learn more about Next.js, take a look at the following resources:
+## 3. Fetch a list of products from Shopify's REST API
+Use the Shopify REST API to fetch a list of products. You may use any method or approach you prefer for the implementation, as long as it integrates well with the Next.js app.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 4. Display the product's information in the Next.js app
+Create a simple layout that displays product information (title, price, main image, and description) for one product at a time. This layout can be as simple or elaborate as you wish, but focus on demonstrating the ability to fetch and display API data using React.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 5. Create a toggle which switches between the fetched products and displays their information
+Implement a toggle that allows the user to switch between different products and display their respective information. This should demonstrate your understanding of SSR (Server-Side Rendering) versus client-side React functionality, and your use of hooks and state management.
