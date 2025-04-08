@@ -38,3 +38,5 @@ You can run the below command to serve the NextJS application on localhost and c
 ```
 npm run dev & open http://localhost:3000
 ```
+## 6. Commit and push your changes to a branch containing your name
+e.g. `git push -u origin michael-holland-submission`
