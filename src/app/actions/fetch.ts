@@ -10,7 +10,7 @@ export default async function fetchProductsAction() {
   }
 
   try {
-    const response = await axios.get(`${SHOPIFY_STORE_URL}/admin/api/2023-10/products.json`, {
+    const response = await axios.get(`${SHOPIFY_STORE_URL}/admin/api/2025-04/products.json`, {
       headers: {
         'X-Shopify-Access-Token': SHOPIFY_ACCESS_TOKEN,
         'Content-Type': 'application/json',
