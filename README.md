@@ -1,42 +1,122 @@
-# Reverse Life Technical Task
+# Shopify Product Viewer
 
-## 1. Install Necessary Dependencies
+A Next.js application that displays Shopify products with pagination.
 
-To make API requests from your Next.js app, you will need some dependencies.
+## Features
 
-The example below uses axios, but you're free to choose any other library you're comfortable with for API requests.:
+- Fetches products from Shopify's REST API
+- Displays one product at a time
+- Navigation between products using next/previous buttons
+- Responsive design with Tailwind CSS
+- Loading states and error handling
 
+## Prerequisites
+
+- Node.js 18.x or later
+- npm or yarn
+- Shopify store with API access
+- GitHub CLI (for retrieving API credentials)
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd rl-technical-test
 ```
-npm install axios
+
+2. Install dependencies:
+```bash
+npm install
 ```
 
-## 2. Authenticate with GitHub CLI and retrieve your Shopify API keys by running the following commands.
-
-The output should be saved into a .env.development.local file with the necessary variables like SHOPIFY_ACCESS_TOKEN, SHOPIFY_STORE_NAME and SHOPIFY_STORE_URL
-
-```
+3. Set up environment variables:
+```bash
+# Install GitHub CLI
 npm i -g gh
+
+# Login to GitHub
 gh auth login
+
+# Create environment file
 touch .env.development.local
+
+# Pull environment variables
 gh variable list -e Local | ./env-pull.sh > .env.development.local
 ```
 
-If you have any questions or issues retrieveing these credentials, reach out to claire@genius.co.uk
+Required environment variables:
+- `SHOPIFY_ACCESS_TOKEN`: Your Shopify API access token
+- `SHOPIFY_SHOP`: Your Shopify store URL (e.g., 'your-store.myshopify.com')
 
-## 3. Fetch a list of products from Shopify's REST API
-Use the Shopify REST API to fetch a list of products. You may use any method or approach you prefer for the implementation, as long as it integrates well with the Next.js app.
+## Development
 
-## 4. Display the product's information in the Next.js app
-Create a simple layout that displays product information (title, price, main image, and description) for one product at a time. This layout can be as simple or elaborate as you wish, but focus on demonstrating the ability to fetch and display API data using React.
-
-## 5. Create a toggle which switches between the fetched products and displays their information
-Implement a toggle that allows the user to switch between different products and display their respective information. This should demonstrate your understanding of SSR (Server-Side Rendering) versus client-side React functionality, and your use of hooks and state management.
-
-## 6. Test your changes and ensure the solution is functional
-We are not looking for robust testing, just a functional solution with no major errors.
-You can run the below command to serve the NextJS application on localhost and check it runs correctly
+Run the development server:
+```bash
+npm run dev
 ```
-npm run dev & open http://localhost:3000
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Build
+
+Build the application for production:
+```bash
+npm run build
 ```
-## 6. Commit and push your changes to a branch containing your name
-e.g. `git push -u origin michael-holland-submission`
+
+Start the production server:
+```bash
+npm start
+```
+
+## Project Structure
+
+```
+src/
+├── app/                    # Next.js App Router
+│   ├── api/               # API Routes
+│   │   └── products/      # Products API
+│   └── page.tsx           # Home page
+├── components/            # React Components
+│   └── ProductList.tsx    # Product display component
+└── app/globals.css        # Global styles
+```
+
+## Technologies Used
+
+- Next.js 14
+- React 18
+- TypeScript
+- Tailwind CSS
+- Axios
+- Shopify REST API
+
+## API Integration
+
+The application uses Shopify's REST API to fetch product data. The API route (`/api/products`) handles:
+- Pagination
+- Product data transformation
+- Error handling
+
+## Contributing
+
+1. Create a new branch with your name:
+```bash
+git checkout -b your-name-submission
+```
+
+2. Make your changes and commit them:
+```bash
+git add .
+git commit -m "Your commit message"
+```
+
+3. Push to your branch:
+```bash
+git push -u origin your-name-submission
+```
+
+## License
+
+This project is part of a technical assessment and should not be used for production without proper authorization.
